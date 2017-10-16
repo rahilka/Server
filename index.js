@@ -1,8 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
 // const passportConfig = require('./services/passport'); Not necessary
 require('./services/passport'); // because we do not return anything from that file
 
-const app = express();
+mongoose.connect('');
+
+const app = express(keys.mongoURI);
 
 require('./routes/authRoutes')(app); //We immediately invoke the function return from the authRoutes file
 // !!! the authRoutes file returns a function
