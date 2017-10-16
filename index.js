@@ -1,9 +1,12 @@
 const express = require('express');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+
 const app = express();
 
-app.get('/', (req, res) => {
-	res.send({ bye: 'buddy' });
-});
+passport.use(new GoogleStrategy());
+// 'new GoogleStrategy(...)' creates a new instance of the Google Strategy
+// 'passport.use()' meaning: use the passed in strategy
 
 const PORT = process.env.PORT || 5000;
 // meaning: in development environment we'll use port 5000
