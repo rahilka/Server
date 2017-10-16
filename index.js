@@ -25,6 +25,8 @@ app.get(
 	})
 );
 
+app.get("/auth/google/callback", passport.authenticate("google"));
+
 const PORT = process.env.PORT || 5000;
 // meaning: in development environment we'll use port 5000
 // and in production environment we'll use whatever port Heroku is attempting to provide to us
