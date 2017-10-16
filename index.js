@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+require('./models/User'); // on app startup create the model(schema), if does not exist
 // const passportConfig = require('./services/passport'); Not necessary
 require('./services/passport'); // because we do not return anything from that file
 
