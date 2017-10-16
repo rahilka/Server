@@ -5,9 +5,9 @@ require('./models/User'); // on app startup create the model(schema), if does no
 // const passportConfig = require('./services/passport'); Not necessary
 require('./services/passport'); // because we do not return anything from that file
 
-mongoose.connect('');
+mongoose.connect(keys.mongoURI);
 
-const app = express(keys.mongoURI);
+const app = express();
 
 require('./routes/authRoutes')(app); //We immediately invoke the function return from the authRoutes file
 // !!! the authRoutes file returns a function
