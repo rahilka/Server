@@ -5,10 +5,21 @@ const keys = require('../config/keys');
 
 const User = mongoose.model('users');
 
+// serializeUser is called when user logs in and we need to return a unique id as a cookie to the browser
+// we turn the mongoose model instance into an 'id'
 passport.serializeUser((user, done) => {
 	// 'done' is a callback that we have to call after we have done some work with passport
 	// we put 'null' for the error object, cos this is a very simple process and we never expect to be any errors here
 	done(null, user.id); // 'user.id' here is what in mlab is the unique id of the record: '_id.$oid'
+});
+
+// deserializeUser is called when a user that is logged in, makes a new request with the cookie automatically include as a header,
+// so the 'id' provided by the browser is trasfered to the particular user
+// we turn the 'id' into a mongoose model instance
+passport.deserializeUser((id, done) => {
+	User.findById(id).then(user => {
+		done(null, user);
+	});
 });
 
 passport.use(
