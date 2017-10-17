@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 const keys = require('./config/keys');
 require('./models/User'); // on app startup create the model(schema), if does not exist
 // const passportConfig = require('./services/passport'); Not necessary
@@ -8,6 +10,16 @@ require('./services/passport'); // because we do not return anything from that f
 mongoose.connect(keys.mongoURI);
 
 const app = express();
+
+app.use(
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000, //30 days in milliseconds
+		keys: [keys.cookieKey]
+	})
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./routes/authRoutes')(app); //We immediately invoke the function return from the authRoutes file
 // !!! the authRoutes file returns a function
