@@ -1,3 +1,6 @@
+// when we are not providing relative path, like: '.././..', webpack automatically assumes that we are importing npm module
+// and will assume that is a module installed in our node modules
+import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
