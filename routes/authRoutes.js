@@ -18,7 +18,7 @@ module.exports = app => {
 
 	app.get('/api/logout', (req, res) => {
 		req.logout(); // this function is automatically attached to the req object by 'passport'
-		res.send(req.user); // prove that the user is not signed in anymore
+		res.redirect('/'); // prove that the user is not signed in anymore
 	});
 
 	app.get('/api/current_user', (req, res) => {
