@@ -10,6 +10,10 @@ module.exports = app => {
 				source: req.body.id
 			});
 
-			console.log(charge)
+			// req.user = is set up automatically by passport
+			req.user.credits += 5;
+			const user = await req.user.save();
+
+			res.send(user);
 	});
 };
