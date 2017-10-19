@@ -27,6 +27,7 @@ require('./routes/authRoutes')(app); //We immediately invoke the function return
 // const authRoutes = require('./routes/authRoutes');
 // authRoutes(app);
 // It's just that is not mandatory to create a variable for it !!!
+require('./routes/billingRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 // meaning: in development environment we'll use port 5000
