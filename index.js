@@ -30,6 +30,7 @@ require('./routes/authRoutes')(app); //We immediately invoke the function return
 // authRoutes(app);
 // It's just that is not mandatory to create a variable for it !!!
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 // Heroku automatically sets the NODE_ENV variable to 'production' when deployed
 if (process.env.NODE_ENV === 'production') {
