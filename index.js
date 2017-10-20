@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/User'); // on app startup create the model(schema), if does not exist
 // const passportConfig = require('./services/passport'); Not necessary
+require('./models/Survey');
 require('./services/passport'); // because we do not return anything from that file
 
 mongoose.connect(keys.mongoURI);
