@@ -23,5 +23,6 @@ module.exports = app => {
 		// 1st argument is the survey with 'body' and 'recepients'
 		// 2nd argument is the html we want to return
 		const mailer = new Mailer(survey, surveyTemplate(survey));
+		mailer.send();
 	});
 };
