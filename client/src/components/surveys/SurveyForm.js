@@ -23,7 +23,7 @@ class SurveyForm extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+				<form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
 					{this.renderFields()}		
 					<Link to="/surveys" className="red btn-flat white-text">Cancel</Link>
 					<button type="submit" className="teal btn-flat right white-text">
@@ -46,7 +46,6 @@ function validate(values) {
 			errors[name] = 'You must provide a value'
 		}
 	});
-
 
 	return errors;
 }
