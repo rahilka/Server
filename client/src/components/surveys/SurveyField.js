@@ -2,7 +2,7 @@
 import React from 'react';
 
 export default ({ input, label, meta: { error, touched } }) => {
-	retrun (
+	return (
 		<div>
 			<label>{label}</label>
 			<input {...input} style={{ marginBottom: '5px' }} />
